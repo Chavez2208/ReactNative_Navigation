@@ -4,15 +4,12 @@ import SccreenPage2 from '../screens/SccreenPage2';
 import SccreenPage3 from '../screens/SccreenPage3';
 import PersonaScren from '../screens/PersonaScren';
 
-
-
 export type RootStackParams = {
     SccreenPage1: undefined
     SccreenPage2: undefined
     SccreenPage3: undefined
     PersonaScren: { id: number, name: string }
 }
-
 
 const Stack = createStackNavigator<RootStackParams>();
 
@@ -21,14 +18,14 @@ export const StackNavigator = () => {
         <Stack.Navigator
             // initialRouteName='SccreenPage3' //Se pone por defecto que pagina incia
             screenOptions={{
-                // headerShown: false, //Para eliminar o ocultar el encabezado
+                headerShown: false, //Para eliminar o ocultar el encabezado
                 headerStyle: {
                     elevation: 0, //Eiminar la linea Android
                     shadowColor: 'transparent' //Esto es para IOS eliminar la linea
                 },
                 cardStyle: {
                     backgroundColor: 'white'
-                }
+                },
             }}
         >
             <Stack.Screen name="SccreenPage1" options={{ title: "Page 1" }} component={SccreenPage1} />
