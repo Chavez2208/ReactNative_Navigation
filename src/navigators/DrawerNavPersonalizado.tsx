@@ -1,10 +1,12 @@
 import React from 'react';
 import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavigator } from '@react-navigation/drawer';
 import { useWindowDimensions, Text, Image, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { StackNavigator } from './StackNavigator';
 import SettingsScreen from '../screens/SettingsScreen';
-import { styles } from '../theme/appTheme';
+import { colors, styles } from '../theme/appTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { BottomTabs } from './BottomTabs';
 
 const Drawer = createDrawerNavigator();
 
@@ -21,6 +23,7 @@ const DrawerNavPersonalizado = () => {
         >
             <Drawer.Screen name="StackNavigator" component={StackNavigator} />
             <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+            <Drawer.Screen name="BottomTabs" component={BottomTabs} />
         </Drawer.Navigator>
     )
 }
@@ -43,12 +46,18 @@ const MenuItems = ({ navigation }: DrawerContentComponentProps) => {
                 <TouchableOpacity
                     onPress={() => navigation.navigate('StackNavigator')}
                     style={styles.BtnMenuItem}>
-                    <Text style={styles.MenuTextItem}>Navegacion</Text>
+                    <Text style={styles.MenuTextItem}>
+                        <Icon name="bag-add-outline" size={20} color={colors.primary} /> Navegacion</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => navigation.navigate('SettingsScreen')}
                     style={styles.BtnMenuItem}>
-                    <Text style={styles.MenuTextItem}>Configuracion</Text>
+                    <Text style={styles.MenuTextItem}><Icon name="settings-outline" size={20} color={colors.primary} /> Configuracion</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('BottomTabs')}
+                    style={styles.BtnMenuItem}>
+                    <Text style={styles.MenuTextItem}><Icon name="ellipsis-horizontal-outline" size={20} color={colors.primary} /> Bottom tabs</Text>
                 </TouchableOpacity>
             </View>
         </DrawerContentScrollView>
