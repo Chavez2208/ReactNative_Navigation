@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Text, View, Button, TouchableOpacity } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
 import { styles } from '../theme/appTheme'
+import { AuthContext } from '../context/AuthContext'
 
 interface Props extends StackScreenProps<any, any> { };
 
 const SccreenPage1 = ({ navigation }: Props) => {
+
+    const { login } = useContext(AuthContext)
     return (
         <View style={styles.marginGlobal}>
             <Button
@@ -40,6 +43,14 @@ const SccreenPage1 = ({ navigation }: Props) => {
                     style={styles.btnGrande}
                 >
                     <Text style={styles.title}>Maria </Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{ flexDirection: 'row', marginTop: 20 }}>
+                <TouchableOpacity
+                    onPress={() => login('1234566LK')}
+                    style={{ ...styles.btnGrande, backgroundColor: 'cyan' }}
+                >
+                    <Text style={styles.title}>Husky</Text>
                 </TouchableOpacity>
             </View>
         </View>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons';
-import { colors, styles } from '../theme/appTheme';
+import { styles } from '../theme/appTheme';
+import TouchableIcon from '../components/TouchableIcon';
 
 
 const Tab1Screen = () => {
@@ -9,9 +9,9 @@ const Tab1Screen = () => {
         <View style={styles.marginGlobal}>
             <Text style={styles.title}> Iconos</Text>
             <Text>
-                <Icon name="american-football-outline" size={30} color={colors.primary} />;
-                <Icon name="aperture-outline" size={30} color={colors.primary} />;
-                <Icon name="bag-add-outline" size={30} color={colors.primary} />;
+                <TouchableIcon iconName="american-football-outline" />;
+                <TouchableIcon iconName="aperture-outline" />;
+                <TouchableIcon iconName="bag-add-outline" />;
             </Text>
         </View>
     )
